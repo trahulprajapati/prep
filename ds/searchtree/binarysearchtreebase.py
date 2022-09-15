@@ -1,0 +1,3 @@
+class BinarySearchTreeBase:
+    pass
+
