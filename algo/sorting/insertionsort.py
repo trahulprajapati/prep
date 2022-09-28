@@ -1,4 +1,4 @@
-#method 2: time O(n^2), space O(1)
+#method 2: time O(n^2), o(m+n) space O(1)
 def find_current_pos(li):
     for i in range(1, len(li)):
         cur = li[i]
