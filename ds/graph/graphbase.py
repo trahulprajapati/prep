@@ -59,6 +59,15 @@ class Graph:
         adj = self.incoming if incoming else self.outgoing
         return len(adj[v])
 
+    def print_ed(self, v):
+        l = []
+        for i in v:
+            l.append(i.origin.ele)
+            l.append(i.dest.ele)
+        return l
+    def print(self):
+        for i in self.outgoing:
+            print(f'{i.ele}:  {self.print_ed(self.outgoing[i].values())}')
 #
 # ob = Graph()
 #
