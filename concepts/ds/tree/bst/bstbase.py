@@ -77,7 +77,7 @@ class BSTBase:
                 p.parent.left = None
         elif p == p.parent.right:
             if child:
-                par =  p.parent
+                par = p.parent
                 par.right = child
                 child.parent = par
             else:

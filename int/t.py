@@ -1,60 +1,68 @@
 #
-# n = input()
-# n = str(n)
+# a = 'rahul prajapati'
 #
-# su = 0
-# for i in n:
-# 	su += int(i)
+# h = {}
+# for i in range(len(a)):
+#     if a[i] in h:
+#         h[a[i]] += 1
+#     else:
+#         h[a[i]] = 1
 #
-# #is_pel = str(su)
-# def is_pel(st):
-# 	i = 0
-# 	j = len(st)-1
-# 	le = len(st)
-# 	if le < 3:
-#   		return True
-# 	while i < j:
-#   		if st[i] != st[j]:
-# 	 		return False
+# char = 0
+# ch = ''
+# for i, j in h.items():
+#     if j > char:
+#         char = j
+#         ch = i
 #
-# 	return True
+# print(char, ch)
+
+
 #
-# #is_pel = str(sui)
-# print(is_pel(str(su))
-class A:
-	def do_t(self, i):
-		print(type(self).__name__ , i)
-		#print(type(self).__base__.__name__)
-		def tu():
-			pass
+# li = [{'expiryDateTime': '2023-06-02T00:00:00+06:00',
+#   'offerID': 1563,
+#   'offerState': 0,
+#   'offerType': 2,
+#   'startDateTime': '2023-05-03T00:00:00+06:00'},
+#  {'expiryDate': '2023-05-09T12:00:00+00:00',
+#   'offerID': 3857,
+#   'offerType': 0,
+#   'startDate': '2023-05-03T12:00:00+00:00'},
+#  {'expiryDate': '9999-12-31T12:00:00+00:00',
+#   'offerID': 10101,
+#   'offerType': 0,
+#   'startDate': '2022-06-21T12:00:00+00:00'},
+#  {'expiryDate': '9999-12-31T12:00:00+00:00',
+#   'offerID': 10102,
+#   'offerType': 0,
+#   'startDate': '2022-06-21T12:00:00+00:00'},
+#  {'expiryDate': '9999-12-31T12:00:00+00:00',
+#   'offerID': 10103,
+#   'offerType': 0,
+#   'startDate': '2022-06-21T12:00:00+00:00'},
+#  {'expiryDate': '9999-12-31T12:00:00+00:00',
+#   'offerID': 10105,
+#   'offerType': 0,
+#   'startDate': '2022-06-21T12:00:00+00:00'},
+#  {'expiryDate': '2023-06-01T12:00:00+00:00',
+#   'offerID': 21035,
+#   'offerType': 0,
+#   'startDate': '2023-05-03T12:00:00+00:00'}]
 
-		print(tu.__doc__)
-	def __call__(self, *args, **kwargs):
-		params = kwargs if len(kwargs) else args
-		print(params)
+import datetime
+import isodate
 
-class B(A):
-	pas = 10
-	class PL:
-		def po(self):
-			print('call')
+def _convert_start_date(start_date):
+ """
+ Fix year 1970 to month start date bill period
+ """
+ if '0000' == str(start_date)[:4]:
+  today = datetime.datetime.utcnow()
+  new_start = today.replace(
+   day=1, hour=0, minute=0,
+   second=0, microsecond=0)
+  # is UTC
+  return new_start.isoformat() + '+00:00'
 
-	def __call__(self, *args, **kwargs):
-		params = kwargs if len(kwargs) else args
-		#print('--', params)
-		self.do_t(params[1])
-
-	def do_t2(self):
-		print(type(self).__base__.__name__)
-
-
-ob = B()
-ob(8,80)
-# ob.t()
-# ob.t2()
-ls = getattr(ob, 'do_t')
-#ls = getattr(ob, 'PL')
-#ls = getattr(ob, 'pas')
-ls(9)
-#print(ls)
-#print( getattr(ob, 'do_t'))
+ start_date = isodate.parse_datetime(str(start_date))
+ return start_date.isoformat()[:-6] + '+00:00'

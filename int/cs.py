@@ -24,9 +24,9 @@ def is_pel(st):
 
 
 
-
-a = [1,2,3,99,9,11]
-
+#[8,9,6,2] = 9862
+a = [1,2,3,99,9,11] #-> 99932111
+#99119321
 
 #99932
 outlist = []
@@ -39,6 +39,10 @@ for i in range(len(a)):
         #outlist.append(int(st))
 
 print(a)
+
+l1 = [1,4,232,32,112]
+l2 = [1,4,2322,32,1122]
+print(set(l1)&set(l2))
 # print(outlist)
 # srtli = sorted(outlist, reverse=True)
 # print(srtli[0])

@@ -28,17 +28,26 @@ class Tree:
             elif cn.right == None:
                 cn.right = nd
                 qu.append(nd)
-    def levelorder(self):
-        p = self.root
-        q = [self.root]
+    def level_orer(self):
+        wk = self.root
+        q = [wk]
         while len(q) != 0:
-            nd = q.pop(0)
-            if nd:
-                print(nd.ele)
-                if nd.left:
-                    q.append(nd.left)
-                if nd.right:
-                    q.append(nd.right)
+            cu = q.pop(0)
+
+            ''
+
+
+    # def levelorder(self):
+    #     p = self.root
+    #     q = [self.root]
+    #     while len(q) != 0:
+    #         nd = q.pop(0)
+    #         if nd:
+    #             print(nd.ele)
+    #             if nd.left:
+    #                 q.append(nd.left)
+    #             if nd.right:
+    #                 q.append(nd.right)
 
 
 li = [1,2,3,4,5,6,7]

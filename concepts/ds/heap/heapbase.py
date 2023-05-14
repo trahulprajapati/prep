@@ -38,7 +38,7 @@ class HeapBase:
     def heapify(self, i, n):
         if self.has_left(i, n):
             mi = self.left(i)
-            if self.has_right(i,n):
+            if self.has_right(i, n):
                 ri = self.right(i)
                 if self.li[ri] < self.li[mi]:
                     mi = ri

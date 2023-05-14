@@ -36,3 +36,4 @@ t.recursive_tranvewrsal(t.root)
 
 print('Method 1: Recursive')
 t.stack_traversal(t.root)
+
