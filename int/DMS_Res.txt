@@ -1,0 +1,14 @@
+DMS
+
+Template
+
+git clone https://github.com/app-generator/django-black-dashboard.git
+https://github.com/creativetimofficial/material-dashboard-django
+git clone https://github.com/creativetimofficial/material-dashboard-django.git
+
+
+Todo
+Project skeleton
+User stories
+
+

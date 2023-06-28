@@ -1,0 +1,57 @@
+version: '1.0'
+
+services:
+  dms:
+    restart: always
+    links:
+      - postgres:postgres
+      - redis:redis
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #build: ./app
+#    expose:
+#      - '8000'
+#    command: sh -c "python /opt/app/test_docker/manage.py collectstatic --noinput && python /opt/app/test_docker/manage.py makemigrate --noinput
+#      && /opt/app/test_docker/python manage.py migrate --noinput  && uwsgi --ini /opt/app/test_docker/uwsgi.ini"
+#    command: sh -c "python /opt/app/test_docker/manage.py makemigrations --noinput
+#      && python /opt/app/test_docker/manage.py migrate --noinput  && uwsgi --ini /opt/app/test_docker/uwsgi.ini"
+    command: uwsgi --ini /opt/app/test_docker/uwsgi.ini
+    volumes:
+      - web_app:/opt/app/test_docker
+      - web_static:/opt/web/staticfiles
+      - web_media:/opt/web/mediafiles
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+
+  redis:
+    restart: always
+    image: redis:7.0.11-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  postgres:
+    restart: always
+    image: postgres:15.3-alpine
+    environment:
+      POSTGRES_USER: dms
+      POSTGRES_DB: dms
+      POSTGRES_PASSWORD: dms123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+volumes:
+  web_static:
+  web_media:
+  web_app:
+  redisdata:
+  pgdata:
+    #external: true
