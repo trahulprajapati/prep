@@ -1,0 +1,30 @@
+
+
+
+>> import django
+>>> print(django.db.connection.ensure_connection())
+None
+>>> django.db.connection
+<django.utils.connection.ConnectionProxy object at 0xffff90b397f0>
+>>> django.db.connection.__dict__
+{'_connections': <django.db.utils.ConnectionHandler object at 0xffff90b39880>, '_alias': 'default'}
+>>> conn = django.db.connection._connections
+>>> conn
+<django.db.utils.ConnectionHandler object at 0xffff90b39880>
+
+>>> settings
+<LazySettings "test_docker.settings">
+>>> settings.__dict__
+
+
+>> conn.__di    ct__
+{'_settings': {'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': PosixPath('/opt/app/test_docker/db.sqlite3'), 'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'CONN_MAX_AGE': 0, 'CONN_HEALTH_CHECKS': False, 'OPTIONS': {}, 'TIME_ZONE': None, 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIGRATE': True, 'MIRROR': None, 'NAME': None}}}, '_connections': <asgiref.local.Local object at 0xffff90b39790>, 'settings': {'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': PosixPath('/opt/app/test_docker/db.sqlite3'), 'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'CONN_MAX_AGE': 0, 'CONN_HEALTH_CHECKS': False, 'OPTIONS': {}, 'TIME_ZONE': None, 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIGRATE': True, 'MIRROR': None, 'NAME': None}}}}
+>>>
+>>>
+>>> settings
+<LazySettings "test_docker.settings">
+>>> settings.__dict__
+{'_wrapped': <Settings "test_docker.settings">, 'INSTALLED_APPS': ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles'], 'LOGGING_CONFIG': 'logging.config.dictConfig', 'LOGGING': {}, 'DEFAULT_EXCEPTION_REPORTER': 'django.views.debug.ExceptionReporter', 'FORCE_SCRIPT_NAME': None, 'DEFAULT_TABLESPACE': '', 'DEFAULT_AUTO_FIELD': 'django.db.models.BigAutoField', 'ABSOLUTE_URL_OVERRIDES': {}, 'AUTH_USER_MODEL': 'auth.User', 'DEBUG': True, 
+
+'DATABASES': 
+    {'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': PosixPath('/opt/app/test_docker/db.sqlite3'), 'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'CONN_MAX_AGE': 0, 'CONN_HEALTH_CHECKS': False, 'OPTIONS': {}, 'TIME_ZONE': None, 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIGRATE': True, 'MIRROR': None, 'NAME': None}}}, 'USE_I18N': True, 'LANGUAGE_CODE': 'en-us', 'LOCALE_PATHS': [], 'DEFAULT_INDEX_TABLESPACE': ''}

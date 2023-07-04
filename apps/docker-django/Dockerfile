@@ -17,6 +17,9 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirement.txt .
 RUN apk add --no-cache linux-headers g++
+#RUN apk add libpq-dev
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev
 #RUN set -e; \
 #	apk add --no-cache --virtual .build-deps \
 #		gcc \

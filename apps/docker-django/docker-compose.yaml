@@ -19,7 +19,7 @@ services:
 #      && python /opt/app/test_docker/manage.py migrate --noinput  && uwsgi --ini /opt/app/test_docker/uwsgi.ini"
     command: uwsgi --ini /opt/app/test_docker/uwsgi.ini
     volumes:
-      - web_app:/opt/app/test_docker
+      #- .:/opt/app/test_docker
       - web_static:/opt/web/staticfiles
       - web_media:/opt/web/mediafiles
     ports:
